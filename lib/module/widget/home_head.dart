@@ -32,7 +32,8 @@ Widget homehead(context) {
                           fontWeight: FontWeight.w900),
                     ),
                     Text(
-                      'This App Can Be Help Your Managment',
+                      '''This App Can Be Help 
+Your Managment''',
                       style: TextStyle(color: homeBody, fontSize: 16),
                     ),
                   ],
@@ -44,7 +45,7 @@ Widget homehead(context) {
       ],
     ),
     Positioned(
-      top: 80,
+      top: 100,
       right: 0,
       left: 0,
       child: Container(

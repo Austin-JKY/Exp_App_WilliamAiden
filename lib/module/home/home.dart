@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app_fi/core/utils/colors.dart';
-import 'package:my_app_fi/core/utils/model/money.dart';
 import 'package:my_app_fi/core/utils/model/money_list.dart';
-// import 'package:my_app_fi/core/utils/colors.dart';
 import 'package:my_app_fi/module/widget/home_head.dart';
 
 class Home extends StatelessWidget {
@@ -16,7 +14,7 @@ class Home extends StatelessWidget {
           body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: SizedBox(height: 250, child: homehead(context)),
+            child: SizedBox(height: 260, child: homehead(context)),
           ),
           SliverToBoxAdapter(
             child: Padding(
