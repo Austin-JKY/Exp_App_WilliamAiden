@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_app_fi/module/giraph/giraph.dart';
 import 'package:my_app_fi/module/home/home.dart';
 
 class AppRouter {
@@ -19,6 +20,14 @@ class AppRouter {
         pageBuilder: (context, state) {
           return routeWithTransition(
             child: const Home(),
+          );
+        },
+      ),
+      GoRoute(
+        path: RouteConstants.giraph,
+        pageBuilder: (context, state) {
+          return routeWithTransition(
+            child: const Giraph(),
           );
         },
       ),
@@ -52,4 +61,5 @@ class AppRouter {
 
 class RouteConstants {
   static const String root = "/";
+  static const String giraph = "/giraph";
 }

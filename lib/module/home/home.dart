@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:my_app_fi/core/utils/colors.dart';
 import 'package:my_app_fi/core/utils/model/money_list.dart';
 import 'package:my_app_fi/module/widget/home_head.dart';
@@ -22,11 +23,16 @@ class Home extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "HISTORY",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () {
+                      context.go('/giraph');
+                    },
+                    child: Text(
+                      "HISTORY",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Text(
