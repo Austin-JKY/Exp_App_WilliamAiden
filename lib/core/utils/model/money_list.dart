@@ -7,6 +7,11 @@ List<Money> getMoney() {
   money.name = 'Global Limited';
   money.time = 'today';
   money.fee = '100000';
+  Money gg = Money();
+  money.image = 'images.png';
+  money.name = 'Global Limited';
+  money.time = 'today';
+  money.fee = '100000';
   money.bbuy = false;
   Money getUse = Money();
   getUse.image = 'logo1.png';

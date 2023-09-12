@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_app_fi/module/giraph/giraph.dart';
-import 'package:my_app_fi/module/home/home.dart';
+import 'package:my_app_fi/module/widget/add_page.dart';
+
+import 'package:my_app_fi/module/widget/nav.dart';
 
 class AppRouter {
   static final GoRouter _router = GoRouter(
@@ -19,15 +20,15 @@ class AppRouter {
         path: RouteConstants.root,
         pageBuilder: (context, state) {
           return routeWithTransition(
-            child: const Home(),
+            child: Nav(),
           );
         },
       ),
       GoRoute(
-        path: RouteConstants.giraph,
+        path: RouteConstants.add,
         pageBuilder: (context, state) {
           return routeWithTransition(
-            child: const Giraph(),
+            child: AddPage(),
           );
         },
       ),
@@ -61,5 +62,5 @@ class AppRouter {
 
 class RouteConstants {
   static const String root = "/";
-  static const String giraph = "/giraph";
+  static const String add = "/addPage";
 }

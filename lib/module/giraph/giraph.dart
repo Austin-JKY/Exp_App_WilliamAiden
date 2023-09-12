@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app_fi/core/utils/colors.dart';
+import 'package:my_app_fi/core/utils/model/money_list.dart';
+import 'package:my_app_fi/module/giraph/chart.dart';
 
 class Giraph extends StatefulWidget {
   const Giraph({super.key});
@@ -19,10 +21,10 @@ class _GiraphState extends State<Giraph> {
           slivers: [
             SliverToBoxAdapter(
               child: Column(children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Text(
+                const Text(
                   "GIRAPH",
                   style: TextStyle(
                     color: Colors.black,
@@ -30,7 +32,7 @@ class _GiraphState extends State<Giraph> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -45,7 +47,7 @@ class _GiraphState extends State<Giraph> {
                           });
                         },
                         child: Container(
-                          margin: EdgeInsets.all(7),
+                          margin: const EdgeInsets.all(7),
                           width: 75,
                           height: 35,
                           alignment: Alignment.center,
@@ -72,36 +74,89 @@ class _GiraphState extends State<Giraph> {
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                  width: 150,
-                  height: 40,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: homeBody),
-                  ),
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Down",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                          ),
+                Row(
+                  // mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 40,
+                      margin: const EdgeInsets.only(left: 20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: homeBody),
+                      ),
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Down",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                              ),
+                            ),
+                            Icon(
+                              Icons.arrow_downward_outlined,
+                              size: 20,
+                            ),
+                          ],
                         ),
-                        Icon(
-                          Icons.arrow_downward_outlined,
-                          size: 20,
-                        )
-                      ],
+                      ),
                     ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Chart(),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: const Row(
+                    children: [
+                      Text(
+                        "TOP SPENDING",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
-                )
+                ),
               ]),
             ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return ListTile(
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        "assets/images/${getMoney()[index].image!}",
+                      ),
+                    ),
+                    trailing: Text(
+                      "${getMoney()[index].fee!} K",
+                      style: TextStyle(
+                          color: conColor,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      getMoney()[index].time!,
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: homeBody,
+                      ),
+                    ),
+                  );
+                },
+                childCount: getMoney().length,
+              ),
+            )
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app_fi/core/utils/colors.dart';
+import 'package:my_app_fi/module/giraph/data.dart';
 
 Widget homehead(context) {
   var size = MediaQuery.of(context).size;
@@ -77,8 +78,8 @@ Your Managment''',
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: const Text(
-              "100,00.00 K",
+            child: Text(
+              "${total()}K",
               style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
@@ -131,12 +132,12 @@ Your Managment''',
             children: [
               Container(
                 margin: EdgeInsets.only(
-                  left: 22,
+                  left: 10,
                 ),
                 child: Row(
                   children: [
                     Text(
-                      "100,0 K",
+                      "${income()}K",
                       style: TextStyle(
                         fontSize: 15,
                         color: field,
@@ -147,12 +148,12 @@ Your Managment''',
               ),
               Container(
                 margin: EdgeInsets.only(
-                  left: 65,
+                  left: 100,
                 ),
                 child: Row(
                   children: [
                     Text(
-                      "100,0 K",
+                      "${expenses()}K",
                       style: TextStyle(
                         fontSize: 15,
                         color: field,
